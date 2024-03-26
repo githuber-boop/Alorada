@@ -29,7 +29,7 @@ figure, blockquote, dl, dd {
   margin-block-end: 0;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be emoved */
 ul,
 ol {
   list-style: none;
@@ -86,20 +86,21 @@ textarea:not([rows]) {
 
 .grid {
     display: grid;
-    gap: 1rem;
+    gap: 1em;
 }
 
 .container{
-    max-width: 1320px;
+    max-width: 1420px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 2em;
+    width: 100%;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1em 0;
 }
 
 .logo {
@@ -108,12 +109,13 @@ textarea:not([rows]) {
 
 .links {
     display: flex;
-    gap: 4rem;
+    gap: 4em;
+    justify-content: space-between;
     /* border: 2px solid red ; */
 }
 
 .links li a {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     text-decoration: none;
     font-weight:500;
     transition: 0.3s color ease-in-out;
@@ -124,32 +126,32 @@ textarea:not([rows]) {
 }
 
 .hero {
-    margin-top: 2rem;
+    margin-top: 2em;
     grid-template-columns: 1fr 1fr;
 }
 
 .hero-text h1{
-    font-size: 4rem;
+    font-size: 4em;
     line-height: 1.35;
-    margin: .925rem 0;
+    margin: .925em 0;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     color: var(--text);
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .get--started {
     border: none;
     background-color: var(--blue);
     color: var(--dark-beige);
-    padding: 0.75rem 1.55rem;
+    padding: 0.75em 1.55em;
     border-radius: 8px;
-    font-size: 1.25rem ;
+    font-size: 1.25em ;
     display: inline-block;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
+    margin-right: 2em;
+    margin-bottom: 1em;
     transition: 0.3s background-color ease-in;
 }
 
@@ -168,18 +170,18 @@ textarea:not([rows]) {
   content: '';
   display: block;
   width: 100%;
-  height: 0.25rem;
+  height: 0.25em;
   background-color: var(--blue);
 }
 
 .checked {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 1.5em;
+  margin-top: 2em;
 }
 
 .checked i span{
-  margin-left:0.625rem ;
+  margin-left:0.625em ;
   letter-spacing: 1px;
 }
 
@@ -246,7 +248,9 @@ body.dark .checked  span , body.dark .hero-text p {
   transform: translateX(24px);
 }
 
-
+.hamburger {
+  display: none;
+}
 
 @media only screen and (max-width:1000px) {
   .hero {
@@ -262,37 +266,49 @@ body.dark .checked  span , body.dark .hero-text p {
     flex-direction: column;
   }
 
-  
-  .line {
-  background-color: #000;
-  width: 30px;
-  height: 0.25rem;
-  margin: 3px 0;
-  }
-
-  .nav_links {
-    position: fixed;
-    right: 0;
-    top: -20px;
-    background-color: #fff;
-    width: 500px;
-    height: 100vh;
-  }
-
-  .links.active {
-    height: 450px;
-    overflow: visible;
-  } 
-  .links.active ul {
-    opacity: 1;
-  } 
-
   .links {
+    position: fixed;
+    inset: 0 0 0 50%;
+    background-color: var(--dark-beige);
+    margin: 0;
     flex-direction: column;
-    text-align: center;
     align-items: center;
-    transition: 0.5s;
-    /* opacity: 0; */
-    width: 100%;
+    padding: 10em 2em;
+    gap: 2em;
+    transform: translateX(100%);
   }
+
+  .links[data-visible="true"] {
+    transform: translateX(0)
+  }
+
+  .theme_toggle {
+    margin-right: 3.5rem;
+  }
+
+
+  .links li a {
+    font-size: 1.5em;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    aspect-ratio: 1;
+    z-index: 9999;
+    right: 5%;
+    border: none;
+    background: none;
+    padding: 0;
+
+  }
+
+  .hamburger i {
+    font-size: 2em;
+  }
+
+  body.dark .links li a  {
+    color: var(--hover);
+  } 
+
 }
