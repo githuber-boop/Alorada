@@ -133,7 +133,7 @@ textarea:not([rows]) {
 .hero-text h1{
     font-size: 4em;
     line-height: 1.35;
-    margin: .925em 0;
+    margin:.5rem 0;
 }
 
 .hero-text p {
@@ -274,12 +274,14 @@ body.dark .checked  span , body.dark .hero-text p {
     flex-direction: column;
     align-items: center;
     padding: 10em 2em;
-    gap: 2em;
+    /* gap: 0em; */
     transform: translateX(100%);
+    transition: 0.3s transform ease-in-out;
+    
   }
 
   .links[data-visible="true"] {
-    transform: translateX(0)
+    transform: translateX(0);
   }
 
   .theme_toggle {
@@ -288,7 +290,7 @@ body.dark .checked  span , body.dark .hero-text p {
 
 
   .links li a {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   .hamburger {
@@ -300,15 +302,37 @@ body.dark .checked  span , body.dark .hero-text p {
     border: none;
     background: none;
     padding: 0;
-
   }
+
+
 
   .hamburger i {
     font-size: 2em;
   }
 
+  .white {
+    color: #fff;
+  }
+
+  .black {
+    color: #000;
+  }
+
+
   body.dark .links li a  {
     color: var(--hover);
   } 
+
+  body.dark .links li a:hover  {
+    color: var(--text);
+  } 
+
+  .hero-image {
+    order: 1;
+  }
+  .hero-text {
+    order: 2;
+    /* padding: 1.25rem 0; */
+  }
 
 }
